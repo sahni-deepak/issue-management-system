@@ -1,0 +1,300 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #1a1a1a;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-width: 320px;
+  display: flex;
+  justify-content: center;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+/* Form elements */
+input,
+textarea {
+  width: 25rem;
+  font-size: 17px;
+  font-family: inherit;
+  padding: 0.5rem 0.8rem;
+  margin-bottom: 1rem;
+}
+
+input {
+  height: 2.5rem;
+  padding: 0 0.8rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  margin-bottom: 1rem;
+}
+
+/* Buttons */
+.btn {
+  width: fit-content;
+  padding: 0.6rem 1.8rem 0.8rem;
+  border-radius: 8px;
+  border: 1.8px solid transparent;
+  font-size: 17px;
+  font-weight: 500;
+  font-family: inherit;
+  line-height: 1;
+  cursor: pointer;
+  
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #2e2e2e;
+}
+.btn:hover {
+  background-color: #242424;
+}
+.btn:focus,
+.btn:focus-visible {
+  border: 1.8px solid rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+}
+
+.btn--nav {
+  font-size: 14px;
+  font-weight: 400;
+  padding: 0.5rem 1rem 0.7rem;
+}
+
+/* Page layouts */
+.page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5rem;
+}
+
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+.dashboard h4 {
+  font-size: 18px;
+  margin-bottom: 0.8rem;
+}
+
+/* Navbar */
+.navbar {
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.navbar > div {
+  display: flex;
+  gap: 30rem;
+}
+
+/* Error and loading text */
+.error-text {
+  color: red;
+  font-size: 16px;
+  min-height: 1.2em;
+  margin: 0.2rem 0 0.8rem 0;
+}
+
+.loading-text {
+  margin-top: 3rem;
+}
+
+/* Issue cards */
+.issue-card {
+  width: 26rem;
+  border: 1.8px solid #ccc;
+  border-radius: 8px;
+  padding: 3px 0 8px;
+  margin-bottom: 10px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.issue-card button {
+  margin-top: 8px;
+}
+
+.issue-text {
+  max-width: 23rem;
+  text-align: justify;
+  margin: 5px 0;
+}
+
+.issue-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.issue-actions p {
+  margin-top: 5px;
+}
+
+/* Issue status control */
+.status-control {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.status-label {
+  font-size: 13px;
+  font-weight: 500;
+  color: #9ca3af;
+  white-space: nowrap;
+}
+
+.status-select-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+/* Custom styled select dropdown */
+.status-select {
+  padding: 6px 32px 6px 10px;
+  font-size: 14px;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  cursor: pointer;
+
+  background-color: #0f172a;
+  color: rgba(255, 255, 255, 0.87);
+
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+.status-select:focus {
+  outline: none;
+}
+
+/* Custom dropdown arrow */
+.status-select-wrapper::after {
+  content: "\25BE";
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: rgba(255, 255, 255, 0.87);
+}
+
+.status-select:hover {
+  background-color: #020617;
+  border: 1px solid transparent;
+  color: rgba(255, 255, 255, 0.87);
+}
+
+/* Status-based color variants */
+.status-select--open {
+  background-color: #3f1d1d;
+  color: #fca5a5;
+}
+.status-select--in-progress {
+  background-color: #3a2f0b;
+  color: #fde68a;
+}
+.status-select--resolved {
+  background-color: #062e1a;
+  color: #86efac;
+}
+
+.status-select option {
+  background-color: #242424;
+  color: rgba(255, 255, 255, 0.87);
+}
+
+/* Responsive styles */
+@media (max-width: 640px) {
+  input,
+  textarea,
+  .issue-card {
+    width: 90vw;
+  }
+
+  .issue-text {
+    max-width: 100%;
+  }
+
+  .navbar > div {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .issue-actions {
+    gap: 1.5rem;
+  }
+
+  .page-container {
+    margin-top: 3rem;
+  }
+}
+@media (min-width: 641px) and (max-width: 1024px) {
+  input,
+  textarea,
+  .issue-card {
+    width: 70vw;
+    max-width: 25rem;
+  }
+
+  .navbar > div {
+    gap: 10rem;
+  }
+}
+@media (min-width: 1025px) {
+  input,
+  textarea {
+    width: 25rem;
+  }
+
+  .issue-card {
+    width: 26rem;
+  }
+
+  .navbar > div {
+    gap: 30rem;
+  }
+}
