@@ -1,12 +1,31 @@
+![Node.js](https://img.shields.io/badge/Node.js-Backend-green)
+![Express](https://img.shields.io/badge/Express.js-API-black)
+![MongoDB](https://img.shields.io/badge/MongoDB-Database-brightgreen)
+![React](https://img.shields.io/badge/React-Frontend-blue)
+![JWT](https://img.shields.io/badge/Auth-JWT-orange)
+![RBAC](https://img.shields.io/badge/Security-Role--Based_Access-red)
+![Deployed](https://img.shields.io/badge/Status-Deployed-success)
+
 # Issue Management System
 A full-stack Issue Management System demonstrating authentication, authorization, and role-based access control.
 
 ## Overview
 Users can create and track their own issues, while admins can view, manage, and update issue statuses.
 All authorization is enforced on the backend; frontend role checks exist only for user experience.
+The application is fully deployed and production-ready.
 
 ## Why This Project
 Built to demonstrate secure backend authorization, role-based access control, and clean REST API design as used in real-world production systems.
+
+## Live Deployment
+This project is fully deployed using modern cloud platforms.
+Due to free-tier hosting limits, the live demo URL is not publicly exposed to avoid unnecessary downtime.
+If you'd like to:
+- Review the live application
+- Test the full workflow
+- See the production setup
+
+Please request the live link directly, I'll be happy to share it.
 
 ## Features
 
