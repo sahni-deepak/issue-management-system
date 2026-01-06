@@ -10,22 +10,15 @@
 A full-stack Issue Management System demonstrating authentication, authorization, and role-based access control.
 
 ## Overview
-Users can create and track their own issues, while admins can view, manage, and update issue statuses.
-All authorization is enforced on the backend; frontend role checks exist only for user experience.
-The application is fully deployed and production-ready.
+Users can create and track their own issues, while admins can view, manage, and update issue statuses. The application is fully deployed and production-ready.
 
 ## Why This Project
 Built to demonstrate secure backend authorization, role-based access control, and clean REST API design as used in real-world production systems.
 
 ## Live Deployment
 This project is fully deployed using modern cloud platforms.
-Due to free-tier hosting limits, the live demo URL is not publicly exposed to avoid unnecessary downtime.
-If you'd like to:
-- Review the live application
-- Test the full workflow
-- See the production setup
-
-Please request the live link directly, I'll be happy to share it.
+Due to free-tier hosting limits, the live demo URL is not publicly exposed to prevent unnecessary downtime. 
+The live link can be shared upon request.
 
 ## Features
 
@@ -33,14 +26,12 @@ Please request the live link directly, I'll be happy to share it.
 - JWT-based authentication
 - Protected routes
 - Role-based access (`user`, `admin`)
-- Token validated on the backend
+- Token validation on the backend
 
 ### User Capabilities
 - Register & login 
 - Create issues
-- View and delete only their own issues
-
-Issue ownership is enforced at the database query level.
+- View and delete their own issues
 
 ### Admin Capabilities
 - View all issues
@@ -48,9 +39,7 @@ Issue ownership is enforced at the database query level.
 - Delete any issue
 
 ### Issue Status Flow
-- `open` -> `in-progress` -> `resolved`
-
-Status values are normalized (lowercase) across frontend, backend, and database to avoid inconsistencies.
+`open` -> `in-progress` -> `resolved`
 
 ## Design Philosophy
 This project prioritizes:
@@ -60,8 +49,7 @@ This project prioritizes:
 - Role-based access control
 - Minimal UI by design
 
-The Backend is the single source of truth for authorization.
-All critical access control is enforced on the server using JWT role claims.
+Authorization is enforced on the backend regardless of client-side routing.
 
 ## Tech Stack
 
@@ -86,18 +74,31 @@ backend/
  ├─ models/
  ├─ routes/
  ├─ .env.example
+ ├─ package.json
+ ├─ package-lock.json
  └─ server.js
 
 frontend/
- ├─ api/
- ├─ components/
- ├─ pages/
- ├─ utils/
- └─ App.jsx
+ ├─ src/
+ │  ├─ api/
+ │  ├─ components/
+ │  ├─ pages/
+ │  ├─ utils/
+ │  ├─ App.jsx
+ │  ├─ App.css
+ │  ├─ index.css
+ │  └─ main.jsx
+ ├─ .env.example
+ ├─ eslint.config.js
+ ├─ index.html
+ ├─ package.json
+ ├─ package-lock.json
+ ├─ vercel.json
+ └─ vite.config.js
 ```
 
 ## Environment Variables
-Both frontend and backend include a `.env.example` file for clarity.
+Both frontend and backend have a `.env.example` file for required environment variables.
 
 ### Backend
 ```env
@@ -129,29 +130,10 @@ npm install
 npm run dev
 ```
 
-## API Security & HTTP Status Codes
-The API consistently uses standard HTTP status codes:
-- 200 -> Success
-- 201 -> Resource created
-- 400 -> Validation error
-- 401 -> Unauthorized
-- 403 -> Forbidden
-- 404 -> Not found
-- 409 -> Conflict
-- 500 -> Server error
-
-## Validation Strategy
-- Frontend validation improves UX
-- Backend validation is mandatory and authoritative
-- Client-side checks cannot bypass server rules
-
 ## Tested Scenarios
 - Users cannot view or modify others' issues
 - Non-admin users cannot access admin routes
 - Only admins can update issue status
-- Backend authorization remains enforced even if frontend routing is bypassed
 
 ## Future Improvements
-- Enforce clearer UI-level role separation by restricting admin access to user dashboards
-- Add optional role-based redirects to prevent cross-role navigation
-- Improve UX clarity between user and admin workflows
+- Improve UI-level role separation between user and admin workflows
